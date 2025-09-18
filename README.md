@@ -72,7 +72,7 @@ A comprehensive, production-ready authentication system built with **Next.js 14*
    
    **Frontend** (`apps/frontend/.env.local`):
    ```env
-   NEXT_PUBLIC_API_BASE_URL=http://localhost:8003
+   NEXT_PUBLIC_API_BASE_URL=http://localhost:8007
    NEXT_PUBLIC_GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
    NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your-recaptcha-site-key
    ```
@@ -83,12 +83,12 @@ A comprehensive, production-ready authentication system built with **Next.js 14*
    GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
    RECAPTCHA_SECRET_KEY=your-recaptcha-secret-key
    RECAPTCHA_ENABLED=true
-   CORS_ALLOWED_ORIGINS=http://localhost:3003
-   CSRF_TRUSTED_ORIGINS=http://localhost:3003
+   CORS_ALLOWED_ORIGINS=http://localhost:3007
+   CSRF_TRUSTED_ORIGINS=http://localhost:3007
    SENDINBLUE_API_KEY=your-sendinblue-api-key-optional
    ```
 
-   > **Note**: The default ports are `3003` for frontend and `8003` for backend to avoid conflicts.
+   > **Note**: The default ports are `3007` for frontend and `8007` for backend to avoid conflicts.
 
 4. **Set up the database:**
    ```bash
@@ -117,16 +117,16 @@ A comprehensive, production-ready authentication system built with **Next.js 14*
    **Option 2: Manual startup**
    ```bash
    # Backend (Terminal 1)
-   cd apps/backend && .venv/Scripts/python manage.py runserver 8003
+   cd apps/backend && .venv/Scripts/python manage.py runserver 8007
    
    # Frontend (Terminal 2)
    cd apps/frontend && npm run dev
    ```
 
 6. **Visit the application:**
-   - **Frontend**: http://localhost:3003
-   - **Backend API**: http://localhost:8003
-   - **API Health Check**: http://localhost:8003/auth/health/
+   - **Frontend**: http://localhost:3007
+   - **Backend API**: http://localhost:8007
+   - **API Health Check**: http://localhost:8007/auth/health/
 
 ### 🐳 Docker Quick Start (Alternative)
 
@@ -161,8 +161,8 @@ For a containerized setup with Docker:
    ```
 
 4. **Access the application:**
-   - **Frontend**: http://localhost:3003
-   - **Backend API**: http://localhost:8003
+   - **Frontend**: http://localhost:3007
+   - **Backend API**: http://localhost:8007
 
 📚 **Complete Docker Guide**: See [docs/docker-setup.md](docs/docker-setup.md) for detailed Docker instructions, troubleshooting, and production deployment.
 
@@ -236,8 +236,8 @@ The root `package.json` provides convenient scripts for managing both applicatio
 ```bash
 # Development
 npm run dev                   # Start both frontend and backend simultaneously
-npm run dev:frontend          # Start Next.js dev server (port 3003)
-npm run dev:backend           # Start Django dev server (port 8003)
+npm run dev:frontend          # Start Next.js dev server (port 3007)
+npm run dev:backend           # Start Django dev server (port 8007)
 
 # Installation
 npm run install:frontend      # Install frontend dependencies
@@ -301,7 +301,7 @@ Content-Type: application/json
 3. **Create OAuth 2.0 Credentials**: In APIs & Services > Credentials
 4. **Configure OAuth Consent Screen**: Add app name, support email, etc.
 5. **Add Authorized Origins**:
-   - `http://localhost:3003` (development)
+   - `http://localhost:3007` (development)
    - `https://yourdomain.com` (production)
 6. **Copy Client ID**: Use the same ID for both frontend and backend environment variables
 
@@ -414,11 +414,11 @@ npm run dev:frontend
 **🌐 CORS/Network Errors**
 ```bash
 # Verify backend CORS settings in apps/backend/.env
-CORS_ALLOWED_ORIGINS=http://localhost:3003
-CSRF_TRUSTED_ORIGINS=http://localhost:3003
+CORS_ALLOWED_ORIGINS=http://localhost:3007
+CSRF_TRUSTED_ORIGINS=http://localhost:3007
 
 # Check frontend API URL in apps/frontend/.env.local
-NEXT_PUBLIC_API_BASE_URL=http://localhost:8003
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8007
 ```
 
 **💾 Database Issues**
